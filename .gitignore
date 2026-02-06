@@ -1,0 +1,11 @@
+# Archivos temporales de Linux
+*~
+*.swp
+
+# Archivos de Windows
+Thumbs.db
+*.lnk
+
+# Python
+__pycache__/
+*.pyc
