@@ -1,59 +1,56 @@
-# 🧠 Base de Projetos & Conhecimento
+# 👋 Hi, I'm secthum
 
-Repositório central que reúne meus projetos, scripts, estudos técnicos e análises focadas em **Segurança da Informação, Blue Team, Infraestrutura e Desenvolvimento**.
-
----
-
-## 👋 Sobre mim
-
-Olá! Sou [seu nome], apaixonado por tecnologia, segurança da informação e automação.  
-Tenho experiência com:
-
-- 🛡️ Segurança cibernética e Blue Team  
-- 🌐 Redes e infraestrutura  
-- 🧩 Automação, scripting e desenvolvimento de ferramentas próprias  
-- 📚 Documentação técnica e writeups de estudos  
-
-Meu objetivo é **construir conhecimento sólido**, aplicável em projetos reais e ambientes complexos.
+🧠 Curious mind, driven by thinking outside the box  
+🔎 I like to explore systems deeply, question how things work and keep searching until I find problems to solve  
+🚀 Focused on backend, automation, Linux and security fundamentals  
 
 ---
 
-## 🚀 Minha visão: SectHum
+## 🧠 Stacks & Technologies
 
-Meu projeto de longo prazo é gerenciar e desenvolver uma empresa chamada **SectHum**, focada em **segurança da informação, tecnologia e soluções inovadoras**.  
-Este repositório funciona como **meu “laboratório” e base de conhecimento**, que um dia sustentará os projetos e soluções da SectHum.
+### 💻 Backend
+- Node.js (basic)
+
+### 👓 Frontend
+- HTML  
+- CSS  
+- Markdown  
+- React (basic)
+
+### 🗄️ Databases
+- MySQL (basic)  
+- PostgreSQL (basic)
+
+### 🐧 Linux Administration
+- Command line usage  
+- File system and permissions  
+- Process and system management  
+
+### ⚙️ Automation & Scripting
+- Bash (basic automation scripts)  
+- Python (introductory level, scripting and logic)
+
+### 🔐 Security & Hacking (Learning)
+- Cybersecurity fundamentals  
+- Basic usage of:
+  - Nmap  
+  - Wireshark  
+  - Metasploit (lab / study environments)
+- Introductory knowledge of networks and vulnerabilities  
+
+> ⚠️ Learning purposes only, in controlled environments
+
+### 🛠️ Tools & IDEs
+- VS Code  
+
+### 💾 Version Control
+- Git  
+- GitHub  
+
+### 🎨 Multimedia
+- Adobe Premiere  
 
 ---
 
-## 💼 Habilidades
-
-| Categoria | Nível |
-|-----------|-------|
-| **Automação & Scripting** | Avançado: Bash, Python Intermediário: JavaScript, PHP |
-| **Pentesting / Blue Team** | Iniciante: Pentester Jr, Blue Team Jr |
-| **Desenvolvimento Web** | Avançado: HTML, CSS Intermediário: JavaScript, React, Node.js |
-
----
-
-## 🗂️ Estrutura do Repositório
-
-
-├── Linux/ # Scripts, hardening, análise e notas de sistemas Linux
-├── windows/ # Análise, scripts e notas relacionadas a ambientes Windows
-├── scripts/ # Automação, utilitários e ferramentas próprias
-├── projetos/ # Projetos de desenvolvimento e segurança
-├── notas/ # Notas técnicas, pesquisa, conceitos e teoria
-└── writeups/ # Relatórios, laboratórios, CTFs e análises detalhadas
-
-
----
-
-## 📌 Filosofia
-
-- 🧠 Aprender e documentar constantemente  
-- 🔁 Reutilizar conhecimento em novos projetos  
-- 🚀 Evoluir continuamente e aplicar habilidades em soluções reais  
-
----
-
-*"Construir conhecimento hoje para gerir SectHum amanhã."*
+## ☕ About
+Constantly learning, breaking things, fixing them and learning again.

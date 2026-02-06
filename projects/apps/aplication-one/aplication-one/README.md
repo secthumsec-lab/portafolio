@@ -1,16 +1,51 @@
-# React + Vite
+## 🧪 Prueba de Concepto — Formulario Full Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+!()[images/form.jpg]
+### 📌 Resumen del Proyecto
+Este proyecto es mi primera **prueba de concepto (PoC)**, enfocada en construir un **formulario full stack** utilizando tecnologías modernas.  
+El objetivo principal es comprender cómo se comunican **frontend y backend**, cómo fluye la información en el sistema y cómo estructurar una aplicación escalable.
 
-Currently, two official plugins are available:
+Más que enfocarse en la complejidad, este proyecto pone énfasis en **aprender haciendo**, experimentar y detectar problemas que mejorar en futuras iteraciones.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+### 🧠 Objetivos
+- Aprender los fundamentos de **React** para construir interfaces de usuario  
+- Crear un **backend con Node.js** para recibir y procesar datos  
+- Entender cómo el frontend y el backend se comunican mediante HTTP  
+- Preparar la base para la **integración con bases de datos**  
+- Identificar limitaciones y oportunidades de mejora  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+### 🛠️ Tecnologías Utilizadas
+- **Frontend:** React (básico)  
+- **Backend:** Node.js  
+- **Comunicación:** API REST  
+- **Control de Versiones:** Git & GitHub  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 🔄 Estado Actual
+- Formulario funcional construido con React  
+- Endpoint en el backend que recibe y procesa datos del formulario  
+- Validación básica y manejo de solicitudes  
+
+Esta etapa se centra en **hacer que funcione primero**, aunque la solución no sea perfecta.
+
+---
+
+### 🗄️ Próximos Pasos (Metas)
+- Integrar una **base de datos** (MySQL o PostgreSQL)  
+- Almacenar y recuperar los datos del formulario de manera persistente  
+- Mejorar la validación y el manejo de errores  
+- Refactorizar el código para una mejor estructura y legibilidad  
+- Explorar **prácticas básicas de seguridad**  
+
+---
+
+### 🧩 Filosofía de Aprendizaje
+Este proyecto es parte de un proceso de aprendizaje continuo.  
+La idea es **construir, romper, analizar y reconstruir**, usando cada iteración para profundizar mi comprensión del desarrollo full stack.
+
+Los errores son esperados — forman parte del proceso.
