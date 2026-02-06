@@ -1,0 +1,40 @@
+# 🛡️ Linux Security Scripts – Blue Team Toolkit
+
+Conjunto de **scripts en Bash** diseñados para **reconocimiento, auditoría defensiva, detección de anomalías y análisis de seguridad en sistemas Linux**.
+
+Este toolkit está pensado para:
+- 🔍 Visibilidad rápida del host
+- 🛡️ Blue Team / Defensa
+- 🚨 Detección temprana de compromiso
+- 🧠 Entrenamiento de criterio de seguridad
+- ⚙️ Auditorías locales e Incident Response
+
+Todos los scripts priorizan:
+- Salida **visual y legible**
+- Clasificación de riesgo (**LOW / MED / HIGH**)
+- Explicaciones claras para interpretar los resultados
+
+---
+
+## 📂 Estructura del proyecto
+
+```text
+linux/
+├── recon/                # Reconocimiento básico del sistema
+│   └── linux_recon.sh
+│
+├── defensive/            # Auditoría defensiva y análisis de logs
+│   └── linux_defensive_audit.sh
+│
+├── insights/             # Situational awareness del host
+│   └── linux_host_insights.sh
+│
+├── detectors/            # Detección activa de anomalías
+│   └── anomaly_detection.sh
+│
+├── baseline/             # Baseline y detección de cambios
+│   ├── baseline_create.sh
+│   ├── baseline_compare.sh
+│   └── baseline_data/
+│
+└── reports/              # Evidencias y salidas de auditoría
