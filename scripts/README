@@ -1,18 +1,17 @@
-# 🛡️ Linux Security Scripts – Blue Team Toolkit
+# 🛡️ Linux Blue Team Security Scripts
 
-Conjunto de **scripts en Bash** diseñados para **reconocimiento, auditoría defensiva, detección de anomalías y análisis de seguridad en sistemas Linux**.
+Colección de **scripts en Bash** orientados a **análisis defensivo, detección de anomalías, auditoría de autenticación y evaluación de riesgos de escalada de privilegios en sistemas Linux**.
 
-Este toolkit está pensado para:
-- 🔍 Visibilidad rápida del host
-- 🛡️ Blue Team / Defensa
-- 🚨 Detección temprana de compromiso
-- 🧠 Entrenamiento de criterio de seguridad
-- ⚙️ Auditorías locales e Incident Response
+Este repositorio funciona como un **Blue Team Host Toolkit**, diseñado para ofrecer:
+- 🔍 Visibilidad rápida del sistema
+- 🧠 Contexto y explicación de cada hallazgo
+- 🚨 Detección temprana de comportamiento anómalo
+- 🛡️ Soporte para hardening e Incident Response
 
 Todos los scripts priorizan:
-- Salida **visual y legible**
+- Salida **visual y organizada**
 - Clasificación de riesgo (**LOW / MED / HIGH**)
-- Explicaciones claras para interpretar los resultados
+- Interpretación clara de los resultados
 
 ---
 
@@ -20,21 +19,21 @@ Todos los scripts priorizan:
 
 ```text
 linux/
-├── recon/                # Reconocimiento básico del sistema
-│   └── linux_recon.sh
+├── privesc-linux-audit/        # Auditoría de posibles escaladas de privilegios
+│   └── privesc-linux-audit.sh
 │
-├── defensive/            # Auditoría defensiva y análisis de logs
-│   └── linux_defensive_audit.sh
+├── defensive-auth/             # Auditoría defensiva de autenticación y logs
+│   └── defensive-auth.sh
 │
-├── insights/             # Situational awareness del host
-│   └── linux_host_insights.sh
+├── blue-team-eye/              # Situational awareness del host (visión global)
+│   └── blue-team-eye.sh
 │
-├── detectors/            # Detección activa de anomalías
-│   └── anomaly_detection.sh
+├── anomaly-detection/          # Detección activa de anomalías
+│   └── anomaly-detection.sh
 │
-├── baseline/             # Baseline y detección de cambios
-│   ├── baseline_create.sh
-│   ├── baseline_compare.sh
+├── baseline/                   # Baseline y detección de cambios
+│   ├── baseline-linux-create.sh
+│   ├── baseline-comparer.sh
 │   └── baseline_data/
 │
-└── reports/              # Evidencias y salidas de auditoría
+└── reports/                    # Evidencias y salidas de auditoría
