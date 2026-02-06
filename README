@@ -1,0 +1,28 @@
+# 🧠 Base de Proyectos & Conocimiento
+
+Repositorio central que sirve como **espina dorsal** para mis proyectos, notas técnicas, scripts y análisis relacionados con **seguridad informática, Blue Team, infraestructura y desarrollo**.
+
+Este repositorio está diseñado para crecer de forma modular y organizada, funcionando como punto de partida para todos mis nuevos proyectos.
+
+---
+
+## 🎯 Enfoque principal
+
+- 🛡️ **Blue Team / Defensa**
+- 🔍 Análisis de infraestructura y sistemas
+- 🌐 Redes y arquitectura
+- 🧩 Automatización y scripting
+- 📚 Documentación técnica y writeups
+
+---
+
+## 🗂️ Estructura del repositorio
+
+```text
+.
+├── linux        # Scripts, hardening, análisis y notas de sistemas Linux
+├── windows      # Análisis, scripts y notas relacionadas con entornos Windows
+├── scripts      # Automatización, utilidades y herramientas propias
+├── projects     # Proyectos de desarrollo y seguridad
+├── notes        # Apuntes técnicos, investigación y teoría
+└── writeups     # Reportes, laboratorios, CTFs y análisis detallados
