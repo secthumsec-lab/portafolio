@@ -1,0 +1,192 @@
+{
+  "main": {
+    "id": "66bd558ed749365c",
+    "type": "split",
+    "children": [
+      {
+        "id": "b64202b3244557c0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "80ffd3386949ad6a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "writeups/dockerlabs-aidor/write-up.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "write-up"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9c3e881a5aa536b5",
+    "type": "split",
+    "children": [
+      {
+        "id": "0fde570dbd8b7cde",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0e660bdaea35b5a0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "085f907f8cdcf71d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f263f30558eaea61",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a1f1cb24300e0642",
+    "type": "split",
+    "children": [
+      {
+        "id": "b531e88dc8f7d640",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e8720826000e9ba",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "writeups/dockerlabs-aidor/write-up.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for write-up"
+            }
+          },
+          {
+            "id": "a83a0ed6e9ae826c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "writeups/dockerlabs-aidor/write-up.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from write-up"
+            }
+          },
+          {
+            "id": "c2af2ac40663186c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e8969accafee59ea",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "1d51f4173d04148f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "writeups/dockerlabs-aidor/write-up.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of write-up"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "80ffd3386949ad6a",
+  "lastOpenFiles": [
+    "writeups/dockerlabs-injection/write-up.md",
+    "writeups/dockerlabs-aidor/write-up.md",
+    "projects/apps/aplication-one/aplication-one/README.md.md"
+  ]
+}
