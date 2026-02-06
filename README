@@ -1,48 +1,59 @@
-<h1 align="center">🧠 Base de Projetos & Conhecimento</h1>
+# 🧠 Base de Projetos & Conhecimento
 
-<p align="center">
-  Repositório central que atua como <strong>spine</strong> para meus projetos, estudos técnicos, scripts e análises
-  focados em <strong>Segurança da Informação, Blue Team, Infraestrutura e Desenvolvimento</strong>.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/foco-Blue%20Team-blue">
-  <img src="https://img.shields.io/badge/segurança-IT%20Security-critical">
-  <img src="https://img.shields.io/badge/status-em%20evolucao-success">
-</p>
+Repositório central que reúne meus projetos, scripts, estudos técnicos e análises focadas em **Segurança da Informação, Blue Team, Infraestrutura e Desenvolvimento**.
 
 ---
 
-## 🎯 Objetivo do Repositório
+## 👋 Sobre mim
 
-Este repositório foi projetado para crescer de forma **modular, organizada e escalável**, funcionando como:
+Olá! Sou [seu nome], apaixonado por tecnologia, segurança da informação e automação.  
+Tenho experiência com:
 
-- 📌 Base central de conhecimento técnico  
-- 🚀 Ponto de partida para novos projetos  
-- 🧩 Repositório de scripts reutilizáveis  
-- 📚 Arquivo de estudos, writeups e documentação  
+- 🛡️ Segurança cibernética e Blue Team  
+- 🌐 Redes e infraestrutura  
+- 🧩 Automação, scripting e desenvolvimento de ferramentas próprias  
+- 📚 Documentação técnica e writeups de estudos  
 
-A ideia é consolidar **conhecimento prático e teórico** em um único lugar, facilitando manutenção, evolução e reaproveitamento.
+Meu objetivo é **construir conhecimento sólido**, aplicável em projetos reais e ambientes complexos.
 
 ---
 
-## 🛡️ Áreas de Foco
+## 🚀 Minha visão: SectHum
 
-- 🔵 **Blue Team / Defesa**
-- 🔍 Análise de sistemas e infraestrutura
-- 🌐 Redes, arquitetura e serviços
-- 🧩 Automação, scripting e ferramentas próprias
-- 📚 Documentação técnica, pesquisas e writeups
+Meu projeto de longo prazo é gerenciar e desenvolver uma empresa chamada **SectHum**, focada em **segurança da informação, tecnologia e soluções inovadoras**.  
+Este repositório funciona como **meu “laboratório” e base de conhecimento**, que um dia sustentará os projetos e soluções da SectHum.
+
+---
+
+## 💼 Habilidades
+
+| Área | Nível / Skills |
+|------|----------------|
+| **Automação & Scripting** | ![Bash](https://img.shields.io/badge/Bash-black?style=flat-square&logo=gnu-bash) ![Python](https://img.shields.io/badge/Python-black?style=flat-square&logo=python) ![JavaScript](https://img.shields.io/badge/JavaScript-black?style=flat-square&logo=javascript) ![PHP](https://img.shields.io/badge/PHP-black?style=flat-square&logo=php) |
+| **Pentesting / Blue Team** | ![Pentester Jr](https://img.shields.io/badge/Pentester_Jr-black?style=flat-square) ![Blue Team Jr](https://img.shields.io/badge/Blue_Team_Jr-black?style=flat-square) |
+| **Desenvolvimento Web** | ![React](https://img.shields.io/badge/React-black?style=flat-square&logo=react) ![Node.js](https://img.shields.io/badge/Node.js-black?style=flat-square&logo=node.js) ![HTML](https://img.shields.io/badge/HTML-black?style=flat-square&logo=html5) ![CSS](https://img.shields.io/badge/CSS-black?style=flat-square&logo=css3) ![JS](https://img.shields.io/badge/JS-black?style=flat-square&logo=javascript) |
 
 ---
 
 ## 🗂️ Estrutura do Repositório
 
-```text
-.
-├── Linux/        # Scripts, hardening, análise e notas de sistemas Linux
-├── windows/      # Análise, scripts e notas relacionadas a ambientes Windows
-├── scripts/      # Automação, utilitários e ferramentas próprias
-├── projetos/     # Projetos de desenvolvimento e segurança
-├── notas/        # Notas técnicas, pesquisa, conceitos e teoria
-└── writeups/     # Relatórios, laboratórios, CTFs e análises detalhadas
+
+├── Linux/ # Scripts, hardening, análise e notas de sistemas Linux
+├── windows/ # Análise, scripts e notas relacionadas a ambientes Windows
+├── scripts/ # Automação, utilitários e ferramentas próprias
+├── projetos/ # Projetos de desenvolvimento e segurança
+├── notas/ # Notas técnicas, pesquisa, conceitos e teoria
+└── writeups/ # Relatórios, laboratórios, CTFs e análises detalhadas
+
+
+---
+
+## 📌 Filosofia
+
+- 🧠 Aprender e documentar constantemente  
+- 🔁 Reutilizar conhecimento em novos projetos  
+- 🚀 Evoluir continuamente e aplicar habilidades em soluções reais  
+
+---
+
+*"Construir conhecimento hoje para gerir SectHum amanhã."*
