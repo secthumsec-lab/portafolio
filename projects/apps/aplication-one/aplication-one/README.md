@@ -1,6 +1,6 @@
 ## 🧪 Prueba de Concepto — Formulario Full Stack
 
-![[form.jpg]]
+![[images/form.jpg]]
 ### 📌 Resumen del Proyecto
 Este proyecto es mi primera **prueba de concepto (PoC)**, enfocada en construir un **formulario full stack** utilizando tecnologías modernas.  
 El objetivo principal es comprender cómo se comunican **frontend y backend**, cómo fluye la información en el sistema y cómo estructurar una aplicación escalable.
