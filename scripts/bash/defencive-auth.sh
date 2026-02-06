@@ -51,9 +51,17 @@ find /etc /bin /sbin /usr/bin /usr/sbin -mtime -1 2>/dev/null
 echo -e "\n${YELLOW}[+] Archivos ocultos recientes${NC}"
 find /home -name ".*" -mtime -1 2>/dev/null
 
+# Procesos activos (vista limpia)
+echo -e "\n${YELLOW}[+] Procesos activos (ordenados por CPU)${NC}"
+ps -eo pid,user,%cpu,%mem,tty,stat,cmd --sort=-%cpu | head -n 15
+
+# Procesos como root
+echo -e "\n${YELLOW}[+] Procesos ejecutándose como root${NC}"
+ps -U root -u root u
+
 # Procesos sospechosos
-echo -e "\n${YELLOW}[+] Procesos en ejecución${NC}"
-ps aux --sort=-%cpu | head -n 10
+echo -e "\n${YELLOW}[+] Búsqueda rápida de procesos sospechosos${NC}"
+ps aux | grep -E "nc|netcat|ncat|bash -i|python -c|perl -e|/tmp|/dev/shm" | grep -v grep
 
 # Variables LD_PRELOAD (posibles keyloggers simples)
 echo -e "\n${YELLOW}[+] LD_PRELOAD${NC}"
