@@ -1,28 +1,48 @@
-# 🧠 Base de Proyectos & Conocimiento
+<h1 align="center">🧠 Base de Projetos & Conhecimento</h1>
 
-Repositorio central que sirve como **espina dorsal** para mis proyectos, notas técnicas, scripts y análisis relacionados con **seguridad informática, Blue Team, infraestructura y desarrollo**.
+<p align="center">
+  Repositório central que atua como <strong>spine</strong> para meus projetos, estudos técnicos, scripts e análises
+  focados em <strong>Segurança da Informação, Blue Team, Infraestrutura e Desenvolvimento</strong>.
+</p>
 
-Este repositorio está diseñado para crecer de forma modular y organizada, funcionando como punto de partida para todos mis nuevos proyectos.
-
----
-
-## 🎯 Enfoque principal
-
-- 🛡️ **Blue Team / Defensa**
-- 🔍 Análisis de infraestructura y sistemas
-- 🌐 Redes y arquitectura
-- 🧩 Automatización y scripting
-- 📚 Documentación técnica y writeups
+<p align="center">
+  <img src="https://img.shields.io/badge/foco-Blue%20Team-blue">
+  <img src="https://img.shields.io/badge/segurança-IT%20Security-critical">
+  <img src="https://img.shields.io/badge/status-em%20evolução-success">
+</p>
 
 ---
 
-## 🗂️ Estructura del repositorio
+## 🎯 Objetivo do Repositório
+
+Este repositório foi projetado para crescer de forma **modular, organizada e escalável**, funcionando como:
+
+- 📌 Base central de conhecimento técnico  
+- 🚀 Ponto de partida para novos projetos  
+- 🧩 Repositório de scripts reutilizáveis  
+- 📚 Arquivo de estudos, writeups e documentação  
+
+A ideia é consolidar **conhecimento prático e teórico** em um único lugar, facilitando manutenção, evolução e reaproveitamento.
+
+---
+
+## 🛡️ Áreas de Foco
+
+- 🔵 **Blue Team / Defesa**
+- 🔍 Análise de sistemas e infraestrutura
+- 🌐 Redes, arquitetura e serviços
+- 🧩 Automação, scripting e ferramentas próprias
+- 📚 Documentação técnica, pesquisas e writeups
+
+---
+
+## 🗂️ Estrutura do Repositório
 
 ```text
 .
-├── linux        # Scripts, hardening, análisis y notas de sistemas Linux
-├── windows      # Análisis, scripts y notas relacionadas con entornos Windows
-├── scripts      # Automatización, utilidades y herramientas propias
-├── projects     # Proyectos de desarrollo y seguridad
-├── notes        # Apuntes técnicos, investigación y teoría
-└── writeups     # Reportes, laboratorios, CTFs y análisis detallados
+├── Linux/        # Scripts, hardening, análise e notas de sistemas Linux
+├── windows/      # Análise, scripts e notas relacionadas a ambientes Windows
+├── scripts/      # Automação, utilitários e ferramentas próprias
+├── projetos/     # Projetos de desenvolvimento e segurança
+├── notas/        # Notas técnicas, pesquisa, conceitos e teoria
+└── writeups/     # Relatórios, laboratórios, CTFs e análises detalhadas
