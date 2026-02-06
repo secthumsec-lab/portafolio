@@ -25,7 +25,7 @@ INJECCIONES SQL DETECTED
 
 ![](images/Screenshot_2026-02-06_14-59-53.jpg)
 
-obtenemos un usuario dylan - password coneccion por sshal servidor como usuario dylan
+obtenemos un usuario dylan - password coneccion por ssh al servidor como usuario dylan
 
 ![](images/Screenshot_2026-02-06_15-04-47.jpg)
 
