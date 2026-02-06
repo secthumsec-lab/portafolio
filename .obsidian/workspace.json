@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "writeups/dockerlabs-aidor/write-up.md",
+                "file": "projects/apps/aplication-one/aplication-one/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "write-up"
+              "title": "README"
             }
           }
         ]
@@ -185,8 +185,9 @@
   },
   "active": "80ffd3386949ad6a",
   "lastOpenFiles": [
-    "writeups/dockerlabs-injection/write-up.md",
+    "projects/apps/aplication-one/aplication-one/images/picture.jpg",
     "writeups/dockerlabs-aidor/write-up.md",
+    "writeups/dockerlabs-injection/write-up.md",
     "projects/apps/aplication-one/aplication-one/README.md.md"
   ]
 }
