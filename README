@@ -1,56 +1,70 @@
-# 👋 Hi, I'm secthum
+## Olá! Eu sou D3struc2red ✌️
 
-🧠 Curious mind, driven by thinking outside the box  
-🔎 I like to explore systems deeply, question how things work and keep searching until I find problems to solve  
-🚀 Focused on backend, automation, Linux and security fundamentals  
+- 🌎 Morando no Brasil  
+- 🎓 Estudante autodidata focado em **desenvolvimento + cibersegurança ofensiva**  
+- 💻 Estudando **programação aplicada ao hacking ético**  
+- 🧠 Objetivo: alcançar nível **OSCP / Pentest Web & Infra**  
+- 🐧 Ambiente: **Linux (MX / Kali Linux em VM + Docker)**  
+
+![Profile Views](https://komarev.com/ghpvc/?username=D3struc2red)
 
 ---
 
-## 🧠 Stacks & Technologies
+## 🧰 Stacks & Technologies
 
 ### 💻 Backend
-- Node.js (basic)
+![Node.js](https://img.shields.io/badge/-Node.js-black?style=flat&logo=node.js)
+![Express](https://img.shields.io/badge/-Express-black?style=flat&logo=express)
+![Python](https://img.shields.io/badge/-Python-black?style=flat&logo=python)
+![Bash](https://img.shields.io/badge/-Bash-black?style=flat&logo=gnu-bash)
 
 ### 👓 Frontend
-- HTML  
-- CSS  
-- Markdown  
-- React (basic)
+![HTML5](https://img.shields.io/badge/-HTML-black?style=flat&logo=html5)
+![CSS3](https://img.shields.io/badge/-CSS-black?style=flat&logo=css3&logoColor=1572B6)
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat&logo=javascript)
+![React](https://img.shields.io/badge/-React-black?style=flat&logo=react)
 
-### 🗄️ Databases
-- MySQL (basic)  
-- PostgreSQL (basic)
+### 🗄️ Database
+![SQLite](https://img.shields.io/badge/-SQLite-black?style=flat&logo=sqlite)
+![MySQL](https://img.shields.io/badge/-MySQL-black?style=flat&logo=mysql)
 
-### 🐧 Linux Administration
-- Command line usage  
-- File system and permissions  
-- Process and system management  
+### ⚙️ DevOps / Infra
+![Docker](https://img.shields.io/badge/-Docker-black?style=flat&logo=docker)
+![Linux](https://img.shields.io/badge/-Linux-black?style=flat&logo=linux)
+![VirtualBox](https://img.shields.io/badge/-VirtualBox-black?style=flat&logo=virtualbox)
 
-### ⚙️ Automation & Scripting
-- Bash (basic automation scripts)  
-- Python (introductory level, scripting and logic)
+### 🛡️ Cybersecurity
+![Pentest](https://img.shields.io/badge/-Pentest-black?style=flat)
+![CTFs](https://img.shields.io/badge/-CTFs-black?style=flat)
+![SQL Injection](https://img.shields.io/badge/-SQLi-black?style=flat)
+![XSS](https://img.shields.io/badge/-XSS-black?style=flat)
+![OSINT](https://img.shields.io/badge/-OSINT-black?style=flat)
 
-### 🔐 Security & Hacking (Learning)
-- Cybersecurity fundamentals  
-- Basic usage of:
-  - Nmap  
-  - Wireshark  
-  - Metasploit (lab / study environments)
-- Introductory knowledge of networks and vulnerabilities  
+### 💾 Versionamento
+![Git](https://img.shields.io/badge/-Git-black?style=flat&logo=git)
+![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github)
 
-> ⚠️ Learning purposes only, in controlled environments
-
-### 🛠️ Tools & IDEs
-- VS Code  
-
-### 💾 Version Control
-- Git  
-- GitHub  
-
-### 🎨 Multimedia
-- Adobe Premiere  
+### 🧰 Tools
+![VSCode](https://img.shields.io/badge/-VSCode-black?style=flat&logo=visual-studio-code)
+![Burp Suite](https://img.shields.io/badge/-Burp%20Suite-black?style=flat)
+![Nmap](https://img.shields.io/badge/-Nmap-black?style=flat)
+![SQLMap](https://img.shields.io/badge/-SQLMap-black?style=flat)
 
 ---
 
-## ☕ About
-Constantly learning, breaking things, fixing them and learning again.
+## 🌎 Social
+
+[![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github)](https://github.com/D3struc2red)
+[![Gmail](https://img.shields.io/badge/Gmail-333?style=for-the-badge&logo=gmail)](mailto:seuemail@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com)
+
+---
+
+## 📊 GitHub Stats
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=D3struc2red&layout=compact&langs_count=7&theme=blue-green)
+
+---
+
+☕️  
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-black?style=flat&logo=buy-me-a-coffee&logoColor=white)](https://www.buymeacoffee.com/)
