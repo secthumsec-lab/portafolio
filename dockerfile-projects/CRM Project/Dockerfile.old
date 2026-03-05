@@ -1,0 +1,48 @@
+# Usamos PHP 8.1-apache-bullseye (imagen estable pre-compilada)
+FROM php:8.1-apache-bullseye
+
+# Instalar dependencias necesarias para SuiteCRM
+RUN apt-get update && apt-get install -y \
+    unzip \
+    curl \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libonig-dev \
+    libxml2-dev \
+    default-mysql-client \
+    git \
+    zlib1g-dev \
+    libicu-dev \
+    g++ \
+    && docker-php-ext-install zip mysqli pdo pdo_mysql gd intl mbstring opcache \
+    && a2enmod rewrite \
+    && a2enmod headers \
+    && a2enmod ssl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Descargar SuiteCRM 8.9.2
+RUN curl -fSL -o suitecrm.zip https://suitecrm.com/download/166/suite89/566057/suitecrm-8-9-2.zip \
+    && unzip suitecrm.zip \
+    && mv SuiteCRM-8.9-stable/* /var/www/html/ \
+    && rm -rf SuiteCRM-8.9-stable suitecrm.zip \
+    && chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html \
+    && chmod -R 777 /var/www/html/cache /var/www/html/upload /var/www/html/custom /var/www/html/modules
+
+# Copiar configuración de PHP optimizada
+COPY php.ini ${PHP_INI_DIR}/conf.d/custom.ini
+
+# Crear directorio de trabajo
+WORKDIR /var/www/html
+
+# Habilitar reescritura de URLs
+RUN echo "<Directory /var/www/html>" >> /etc/apache2/apache2.conf && \
+    echo "    AllowOverride All" >> /etc/apache2/apache2.conf && \
+    echo "    Require all granted" >> /etc/apache2/apache2.conf && \
+    echo "</Directory>" >> /etc/apache2/apache2.conf
+
+# Exponer puerto Apache
+EXPOSE 80

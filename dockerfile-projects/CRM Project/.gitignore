@@ -1,0 +1,4 @@
+# Secrets - Never commit these files
+secrets/
+*.log
+.DS_Store
