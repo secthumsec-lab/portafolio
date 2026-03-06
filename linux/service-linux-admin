@@ -1,0 +1,149 @@
+# 🐧 Auditoría de Puertos en Linux antiX: Paso a Paso
+
+Este guía te permite **descubrir puertos, identificar procesos, detener servicios temporalmente y controlar qué se inicia al arranque**, usando solo herramientas nativas de antiX (no systemd).  
+
+---
+
+## 1️⃣ Escaneo de puertos con Nmap
+
+Usamos Nmap para ver qué puertos están abiertos en tu sistema.
+
+```bash
+# Escaneo rápido de puertos más comunes
+nmap -F localhost
+
+# Escaneo detallado con scripts y detección de versiones
+nmap -sCV -p- localhost
+
+-F → rápido, puertos comunes
+
+-sC → ejecuta scripts básicos
+
+-sV → detecta la versión del servicio
+
+-p- → escanea todos los puertos
+
+💡 Consejo: siempre escanea primero localhost para no exponerte a la red externa mientras aprendes.
+
+2️⃣ Ver qué proceso abrió un puerto
+
+Para cada puerto abierto, puedes identificar qué proceso lo abrió y su PID:
+
+# Ver todos los sockets TCP/UDP con proceso y PID
+sudo ss -tulpn
+
+# Filtrar un puerto específico, ejemplo puerto 22 (SSH)
+sudo ss -tulpn | grep :22
+
+# Alternativa con lsof
+sudo lsof -i :22
+
+Salida típica:
+
+tcp LISTEN 0 128 0.0.0.0:22 0.0.0.0:* users:(("sshd",pid=1897,fd=3))
+
+sshd → nombre del proceso
+
+pid=1897 → PID del proceso
+
+3️⃣ Comprobar procesos en ejecución
+
+Si quieres ver más información del proceso:
+
+ps -ef | grep sshd
+
+Esto es útil en antiX porque no siempre existe systemctl.
+
+4️⃣ Detener un servicio temporalmente
+
+Para detener un servicio hasta el próximo reinicio:
+
+# SSH
+sudo /etc/init.d/ssh stop
+
+# RPCBind (puerto 111)
+sudo /etc/init.d/rpcbind stop
+
+# CUPS (puerto 631)
+sudo /etc/init.d/cups stop
+
+# SANE (puerto 6566)
+sudo /etc/init.d/saned stop
+
+💡 Esto no afecta la configuración de inicio, solo lo detiene momentáneamente.
+
+5️⃣ Evitar que el servicio se inicie automáticamente al arrancar
+
+Si no quieres que el servicio se inicie en el próximo arranque:
+
+# antiX con sysvinit
+sudo update-rc.d ssh disable
+sudo update-rc.d rpcbind disable
+sudo update-rc.d cups disable
+sudo update-rc.d saned disable
+
+# OpenRC alternativa
+sudo rc-update del sshd
+sudo rc-update del rpcbind
+sudo rc-update del cups
+sudo rc-update del saned
+
+Esto bloquea el inicio automático, evitando que los puertos queden abiertos innecesariamente.
+
+6️⃣ Reactivar servicio y reinicio automático
+
+Si luego quieres volver a usar el servicio:
+
+# Reiniciar servicio ahora
+sudo /etc/init.d/ssh start
+sudo /etc/init.d/rpcbind start
+sudo /etc/init.d/cups start
+sudo /etc/init.d/saned start
+
+# Habilitar inicio automático
+sudo update-rc.d ssh enable
+sudo update-rc.d rpcbind enable
+sudo update-rc.d cups enable
+sudo update-rc.d saned enable
+
+# OpenRC alternativa
+sudo rc-update add sshd
+sudo rc-update add rpcbind
+sudo rc-update add cups
+sudo rc-update add saned
+7️⃣ Flujo recomendado para volverse PRO en auditoría de puertos
+
+Escanear puertos:
+
+nmap -sCV localhost
+
+Identificar procesos que los abren:
+
+ss -tulpn | grep :PUERTO
+
+Verificar si realmente se usan:
+
+ps -ef | grep PROCESO
+
+Detener servicios innecesarios temporalmente:
+
+/etc/init.d/servicio stop
+
+Evitar reinicio automático:
+
+update-rc.d servicio disable
+
+Reactivar si es necesario:
+
+/etc/init.d/servicio start
+update-rc.d servicio enable
+
+💡 Consejo de seguridad:
+
+Solo deja abiertos los puertos que realmente necesites
+
+Si un servicio solo se usa localmente, limita su escucha a 127.0.0.1 en su configuración (sshd_config, cupsd.conf, etc.)
+
+Esto reduce exposición de tu máquina a ataques externos.
+
+Con esta guía ya tienes un mini laboratorio de seguridad en tu antiX: puedes auditar todos los servicios, ver qué los abre, cerrarlos temporal o permanentemente, y controlarlos al inicio, todo con herramientas nativas y comandos que funcionan en sistemas sin systemd.
