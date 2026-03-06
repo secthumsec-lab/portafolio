@@ -1,0 +1,108 @@
+version: "3.9"
+
+services:
+
+  mariadb:
+    image: mariadb:11
+    container_name: espocrm-db
+    restart: always
+    env_file: .env
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MYSQL_DATABASE}
+      MARIADB_USER: ${MYSQL_USER}
+      MARIADB_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - crm-network
+
+  espocrm:
+    image: espocrm/espocrm
+    container_name: espocrm
+    restart: always
+    env_file: .env
+    environment:
+      ESPOCRM_DATABASE_HOST: mariadb
+      ESPOCRM_DATABASE_USER: ${MYSQL_USER}
+      ESPOCRM_DATABASE_PASSWORD: ${MYSQL_PASSWORD}
+      ESPOCRM_ADMIN_USERNAME: ${ESPO_ADMIN_USER}
+      ESPOCRM_ADMIN_PASSWORD: ${ESPO_ADMIN_PASS}
+      ESPOCRM_SITE_URL: https://${DOMAIN}
+    volumes:
+      - espocrm_data:/var/www/html
+    depends_on:
+      - mariadb
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.crm.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.crm.entrypoints=websecure"
+      - "traefik.http.routers.crm.tls=true"
+    networks:
+      - crm-network
+    ports:
+      - "8080:80"
+  # ⬅ comando para arreglar permisos antes de iniciar Apache
+    command: >
+      sh -c "chown -R 33:33 /var/www/html &&
+           find /var/www/html -type d -exec chmod 775 {} + &&
+           find /var/www/html -type f -exec chmod 664 {} + &&
+           docker-php-entrypoint apache2-foreground"
+
+  traefik:
+    image: traefik:v3.0
+    container_name: traefik
+    command:
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--api.insecure=true"  # para dashboard temporal
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8088:8080"   # dashboard Traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - crm-network
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - crm-network
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    env_file: .env
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASS}
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - crm-network
+    ports:
+      - "3000:3000"
+
+  loki:
+    image: grafana/loki
+    container_name: loki
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki/config.yml
+    command: -config.file=/etc/loki/config.yml
+    networks:
+      - crm-network
+
+volumes:
+  db_data:
+  espocrm_data:
+  grafana_data:
+
+networks:
+  crm-network:
