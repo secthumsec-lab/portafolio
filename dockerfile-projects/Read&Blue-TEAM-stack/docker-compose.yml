@@ -1,0 +1,84 @@
+version: "3.8"
+
+networks:
+  lab_network:
+    name: ${LAB_NETWORK}
+
+services:
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    ports:
+      - "${DVWA_PORT}:80"
+    networks:
+      - lab_network
+
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: juice-shop
+    ports:
+      - "${JUICESHOP_PORT}:3000"
+    networks:
+      - lab_network
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - "--storage.tsdb.retention.time=${PROMETHEUS_RETENTION}"
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    volumes:
+      - ./prometheus:/etc/prometheus
+    ports:
+      - "${PROMETHEUS_PORT}:9090"
+    networks:
+      - lab_network
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    ports:
+      - "${GRAFANA_PORT}:3000"
+    networks:
+      - lab_network
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    ports:
+      - "${NODE_EXPORTER_PORT}:9100"
+    networks:
+      - lab_network
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - "${CADVISOR_PORT}:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - lab_network
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    ports:
+      - "${UPTIME_KUMA_PORT}:3001"
+    volumes:
+      - uptime-kuma-data:/app/data
+    restart: always
+    networks:
+      - lab_network
+
+volumes:
+  uptime-kuma-data:
