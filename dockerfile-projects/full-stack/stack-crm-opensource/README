@@ -1,7 +1,5 @@
 # 🚀 Stack CRM OpenSource — Full Stack con Docker
 
-![CRM Screenshot](https://images.unsplash.com/photo-1559526324-593bc073d938)
-
 > 🧠 **Stack CRM OpenSource**  
 > Un stack completo para correr un **CRM moderno de código abierto** usando **Docker** y servicios integrados (proxy, monitoreo, persistencia de datos) — listo para producción en una VPS.  
 
