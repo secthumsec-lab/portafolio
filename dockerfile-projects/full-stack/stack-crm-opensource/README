@@ -1,0 +1,137 @@
+# 🚀 Stack CRM OpenSource — Full Stack con Docker
+
+![CRM Screenshot](https://images.unsplash.com/photo-1559526324-593bc073d938)
+
+> 🧠 **Stack CRM OpenSource**  
+> Un stack completo para correr un **CRM moderno de código abierto** usando **Docker** y servicios integrados (proxy, monitoreo, persistencia de datos) — listo para producción en una VPS.  
+
+## 📌 ¿Qué es un CRM?
+
+Un **CRM (Customer Relationship Management)** es un software que te permite:
+
+🔥 Gestionar clientes, contactos y relaciones  
+📈 Visualizar ventas, oportunidades y actividades  
+📊 Crear reportes y automatizar procesos de negocio  
+
+Ejemplos reales de CRM open‑source:  
+- **[SuiteCRM sitio oficial](https://suitecrm.com/?utm_source=chatgpt.com)** — uno de los CRM open‑source más usados en el mundo. :contentReference[oaicite:1]{index=1}  
+- **Vtiger Open Source CRM** — CRM con módulos completos de ventas, help‑desk y más. :contentReference[oaicite:2]{index=2}
+
+📷 | Algunos CRMs similares  
+🔗 https://suitecrm.com  
+🔗 https://www.vtiger.com/
+
+---
+
+## 🗂️ Estructura del proyecto
+
+Este repositorio sigue una estructura pensada para desarrollo y despliegue:
+
+
+stack-crm-opensource/
+├── docker-compose.yml
+├── .env.example
+├── nginx/
+├── traefik/
+├── prometheus/
+├── loki/
+├── README.md
+└── ...
+
+
+### 📦 ¿Qué incluye?
+
+✅ Orquestación con **Docker Compose**  
+✅ Servicios backend y frontend  
+✅ Proxy reverso (Nginx o Traefik)  
+✅ Monitoreo con **Prometheus + Loki**  
+✅ Configuración `.env` de ejemplo  
+
+---
+
+## ⚙️ Requisitos previos
+
+Antes de instalar, necesitas:
+
+✔️ Una **VPS con Docker y Docker Compose**  
+✔️ Docker instalado (`docker` y `docker‑compose`)  
+✔️ Configurar tu archivo `.env` copiando de `.env.example`
+
+---
+
+## 💡 Instalación rápida en VPS
+
+1. **Clona el repositorio:**
+
+```sh
+git clone https://github.com/secthumsec-lab/portafolio.git
+cd portafolio/dockerfile-projects/full-stack/stack-crm-opensource
+
+Crea tu archivo .env:
+
+cp .env.example .env
+
+Edita variables sensibles (contraseñas, puertos, dominios).
+
+Levanta todos los contenedores:
+
+docker-compose up -d
+
+Verifica que todo funcione:
+
+✔️ Tu CRM debe estar disponible en el puerto configurado (80/443)
+✔️ Base de datos persistiendo datos incluso después de reinicios
+
+🧱 Persistencia de datos
+
+Este stack está hecho para que tus datos sobrevivan a reinicios o caídas de servidor:
+
+✔️ Usamos volúmenes Docker para bases de datos
+✔️ Todos los servicios críticos tienen restart: always
+✔️ Ideal para producción en VPS o servidor dedicado
+
+📸 Screenshots & Demostraciones
+
+🚀 Demo de CRM real (SuiteCRM – ejemplo de un CRM funcionando):
+🔗 https://suitecrm.com
+
+📊 CRM sobre Docker (genérico):
+📷 https://www.figma.com/file/crm-dashboard-example
+
+🔍 Puedes también ver ejemplos de dashboards en GitHub o Youtube buscando “open source crm demo”.
+
+🛠️ Herramientas incluidas
+Herramienta	Uso
+📦 Docker	Conteneriza todos los servicios
+🐳 Docker Compose	Orquesta multi‑contenedores
+🌐 Nginx / Traefik	Proxy inverso y balanceo
+🔍 Prometheus + Loki	Monitoreo y logs
+⚙️ Variables .env	Configuración flexible
+📦 Qué puedes hacer con este stack
+
+🔸 Desplegar tu propio CRM completamente self‑hosted
+🔸 Integrarlo con herramientas externas
+🔸 Monitorear salud y logs del sistema
+🔸 Escalar servicios por separado
+🔸 Tener datos persistentes aún si el VPS cae
+
+🚀 Siguientes pasos sugeridos
+
+📌 Configurar HTTPS con Let’s Encrypt
+📌 Crear backups automáticos para la base de datos
+📌 Integrar autenticación/roles de usuario
+📌 Añadir métricas personalizadas Prometheus
+
+🤝 Contribuir
+
+Si quieres ayudar a mejorar este stack:
+
+🛠 Abre un issue
+
+📦 Crea un Pull Request
+
+📚 Escribe tests o documentación
+
+📜 Licencia
+
+MIT – libre y abierto.
