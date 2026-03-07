@@ -1,0 +1,222 @@
+# 🔍 Cheat Sheet de WhatWeb
+
+WhatWeb es una herramienta de **fingerprinting web** que permite identificar tecnologías utilizadas por un sitio web.
+
+Puede detectar:
+
+- CMS (WordPress, Joomla, Drupal)
+- frameworks
+- servidores web
+- plugins
+- tecnologías frontend
+- versiones de software
+
+Es muy útil en **fase de reconocimiento (recon)** en pentesting.
+
+---
+
+# 🧠 Uso básico
+
+Escanear un sitio web.
+
+
+whatweb https://target.com
+
+
+Ejemplo de salida:
+
+
+Apache[2.4.41], PHP[7.4], WordPress
+
+
+---
+
+# 1️⃣ Escaneo detallado
+
+Mostrar más información sobre tecnologías detectadas.
+
+
+whatweb -v https://target.com
+
+
+| opción | función |
+|------|------|
+| -v | modo verbose |
+
+---
+
+# 2️⃣ Escaneo agresivo
+
+WhatWeb tiene niveles de agresividad.
+
+
+whatweb -a 3 https://target.com
+
+
+| nivel | descripción |
+|------|------|
+| 1 | rápido |
+| 2 | medio |
+| 3 | agresivo |
+
+---
+
+# 3️⃣ Escanear múltiples sitios
+
+Crear archivo:
+
+
+targets.txt
+
+
+Ejemplo:
+
+
+example.com
+test.com
+target.org
+
+
+Ejecutar:
+
+
+whatweb -i targets.txt
+
+
+---
+
+# 4️⃣ Guardar resultados
+
+Guardar salida en archivo.
+
+
+whatweb https://target.com
+ -o result.txt
+
+
+ ---
+
+ # 5️⃣ Guardar resultados en JSON
+
+ Útil para scripts.
+
+
+ whatweb https://target.com
+  --log-json output.json
+
+
+  ---
+
+  # 6️⃣ Usar proxy
+
+  Para analizar tráfico con herramientas como Burp.
+
+
+  whatweb --proxy http://127.0.0.1:8080
+   https://target.com
+
+
+   ---
+
+   # 7️⃣ Escaneo de subdominios
+
+   Si tienes una lista de subdominios.
+
+
+   whatweb -i subdomains.txt
+
+
+   ---
+
+   # 8️⃣ Filtrar resultados
+
+   Mostrar solo plugins detectados.
+
+
+   whatweb --plugins
+
+
+   ---
+
+   # 9️⃣ Escaneo con autenticación
+
+
+   whatweb --user admin --password admin https://target.com
+
+
+   ---
+
+   # 🔟 Limitar número de threads
+
+
+   whatweb -t 10 https://target.com
+
+
+   | opción | función |
+   |------|------|
+   | -t | número de threads |
+
+   ---
+
+   # 1️⃣1️⃣ Mostrar plugins disponibles
+
+
+   whatweb --list-plugins
+
+
+   Esto muestra todos los detectores de tecnología disponibles.
+
+   ---
+
+   # 🔎 Flujo típico en Recon Web
+
+   1️⃣ Descubrir subdominios
+
+
+   amass enum -d target.com
+
+
+   2️⃣ Analizar tecnologías
+
+
+   whatweb https://target.com
+
+
+   3️⃣ Crawlear endpoints
+
+
+   katana -u https://target.com
+
+
+   4️⃣ Buscar directorios
+
+
+   ffuf -u https://target.com/FUZZ
+    -w wordlist.txt
+
+
+    5️⃣ Buscar vulnerabilidades
+
+
+    nikto -h https://target.com
+
+
+    ---
+
+    # 🧠 Consejos PRO
+
+    - identificar CMS primero
+    - buscar versiones vulnerables
+    - analizar plugins instalados
+    - combinar con escáneres de vulnerabilidad
+
+    ---
+
+    # ⚡ Ejemplo rápido
+
+
+    whatweb -a 3 https://target.com
+     -v
+
+
+     Esto detectará gran parte del **stack tecnológico del sitio web**.

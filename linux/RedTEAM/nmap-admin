@@ -1,0 +1,92 @@
+# 🕵️‍♂️ Cheat Sheet de Nmap
+
+Nmap es la herramienta más usada para **descubrir puertos, servicios y vulnerabilidades** en Linux.
+
+---
+
+## 1️⃣ Escaneo básico de puertos
+
+```bash
+# Escaneo rápido de los 100 puertos más comunes
+nmap localhost
+
+# Escaneo de un puerto específico
+nmap -p 22,80,443 localhost
+
+# Escaneo de un rango de puertos
+nmap -p 1-1000 localhost
+2️⃣ Escaneo avanzado con detección de servicios
+# Escaneo con scripts básicos (-sC) y detección de versión (-sV)
+nmap -sCV localhost
+
+# Escaneo de todos los puertos
+nmap -p- localhost
+
+# Escaneo agresivo (detección de SO, traceroute, scripts)
+sudo nmap -A localhost
+
+Opciones importantes:
+
+Opción	Significado
+-sC	Ejecuta scripts básicos de Nmap
+-sV	Detecta la versión del servicio
+-p-	Escanea todos los puertos (1-65535)
+-A	Escaneo agresivo: OS, versión, scripts, traceroute
+3️⃣ Escaneo de red y hosts
+# Escanear una red completa
+nmap 192.168.1.0/24
+
+# Escanear múltiples hosts
+nmap 192.168.1.10 192.168.1.15
+4️⃣ Escaneo de puertos TCP/UDP
+# Escaneo TCP SYN (rápido y común)
+sudo nmap -sS localhost
+
+# Escaneo UDP (requerido sudo)
+sudo nmap -sU localhost
+
+💡 Tip: El escaneo UDP es más lento, pero útil para servicios como DNS o SNMP.
+
+5️⃣ Escaneo de vulnerabilidades y scripts
+# Escaneo con scripts de vulnerabilidad y detección
+nmap --script vuln localhost
+
+# Ejecutar scripts específicos
+nmap --script http-title,http-robots.txt localhost
+6️⃣ Escaneo silencioso / evasivo
+# Escaneo con menor probabilidad de ser detectado (menos ruido)
+nmap -sS -T2 localhost
+
+# Escaneo con fragmentación de paquetes
+sudo nmap -f localhost
+7️⃣ Salida y formatos
+# Salida normal (pantalla)
+nmap localhost
+
+# Salida en XML (útil para herramientas)
+nmap -oX resultado.xml localhost
+
+# Salida en formato grepable
+nmap -oG resultado.gnmap localhost
+
+# Salida en formato todos los datos
+nmap -oA resultado_completo localhost
+8️⃣ Flujo recomendado para auditoría rápida
+
+Escaneo rápido de puertos comunes:
+
+nmap -F localhost
+
+Escaneo de puertos abiertos con scripts y versiones:
+
+nmap -sCV -p- localhost
+
+Identificar procesos y servicios en Linux:
+
+sudo ss -tulpn
+
+Si quieres investigar vulnerabilidades:
+
+nmap --script vuln localhost
+
+💡 Consejo pro: combina Nmap + ss/lsof + ps para saber qué servicios realmente están corriendo y quién los abrió. Esto te permite auditar tu Linux y reducir exposición de puertos innecesarios.

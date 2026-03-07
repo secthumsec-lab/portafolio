@@ -1,0 +1,310 @@
+# 🌐 Cheat Sheet de Amass
+
+Amass es una herramienta de **reconocimiento y enumeración de subdominios** utilizada en **OSINT y pentesting**.
+
+Permite:
+
+- descubrir subdominios
+- realizar reconocimiento pasivo
+- realizar escaneo activo
+- mapear infraestructura
+- visualizar relaciones entre dominios
+
+Es una de las herramientas más usadas en **Bug Bounty y Recon avanzado**.
+
+---
+
+# 🧠 Modos principales de Amass
+
+Amass tiene varios **modos de funcionamiento**.
+
+| modo | función |
+|-----|------|
+| intel | recolectar información OSINT |
+| enum | enumerar subdominios |
+| viz | visualizar resultados |
+| db | gestionar base de datos |
+| track | comparar cambios en infraestructura |
+
+---
+
+# 1️⃣ Enumeración pasiva (modo seguro)
+
+No interactúa directamente con el servidor objetivo.
+
+
+amass enum -passive -d target.com
+
+
+Esto usa fuentes OSINT como:
+
+- certificados TLS
+- motores de búsqueda
+- bases de datos públicas
+
+---
+
+# 2️⃣ Enumeración activa
+
+Realiza consultas DNS activas.
+
+
+amass enum -active -d target.com
+
+
+Esto puede descubrir **más subdominios**, pero genera tráfico hacia el objetivo.
+
+---
+
+# 3️⃣ Enumeración básica
+
+La forma más común de uso.
+
+
+amass enum -d target.com
+
+
+---
+
+# 4️⃣ Guardar resultados en archivo
+
+
+amass enum -d target.com -o subdomains.txt
+
+
+---
+
+# 5️⃣ Usar múltiples dominios
+
+Crear archivo:
+
+
+domains.txt
+
+
+Contenido:
+
+
+target.com
+example.com
+site.org
+
+
+Ejecutar:
+
+
+amass enum -df domains.txt
+
+
+---
+
+# 6️⃣ Usar wordlist personalizada
+
+Para brute force de subdominios.
+
+
+amass enum -brute -d target.com -w wordlist.txt
+
+
+---
+
+# 7️⃣ Limitar profundidad de subdominios
+
+Ejemplo:
+
+
+amass enum -d target.com -min-for-recursive 2
+
+
+Esto controla cuándo seguir buscando subdominios recursivos.
+
+---
+
+# 8️⃣ Mostrar IPs de subdominios
+
+
+amass enum -ip -d target.com
+
+
+Resultado:
+
+
+sub.target.com 192.168.1.10
+
+
+---
+
+# 9️⃣ Guardar resultados en formato JSON
+
+
+amass enum -d target.com -json result.json
+
+
+Útil para **automatización y scripts**.
+
+---
+
+# 🔟 Reconocimiento de infraestructura
+
+Modo **intel**.
+
+Sirve para descubrir:
+
+- dominios relacionados
+- ASN
+- rangos IP
+
+
+amass intel -d target.com
+
+
+---
+
+# 1️⃣1️⃣ Buscar por ASN
+
+
+amass intel -asn 13335
+
+
+Esto encuentra dominios asociados al ASN.
+
+---
+
+# 1️⃣2️⃣ Buscar por IP
+
+
+amass intel -ip 8.8.8.8
+
+
+---
+
+# 1️⃣3️⃣ Visualización de infraestructura
+
+Primero guardar resultados en base de datos.
+
+
+amass enum -d target.com -dir amass-db
+
+
+Luego generar gráfico:
+
+
+amass viz -dir amass-db
+
+
+Esto crea gráficos de relaciones entre:
+
+- dominios
+- subdominios
+- IPs
+- ASN
+
+---
+
+# 1️⃣4️⃣ Comparar cambios en infraestructura
+
+
+amass track -dir amass-db
+
+
+Esto detecta:
+
+- nuevos subdominios
+- cambios en IP
+- nueva infraestructura
+
+Muy usado en **Bug Bounty continuo**.
+
+---
+
+# 1️⃣5️⃣ Uso con resolvers personalizados
+
+Crear archivo:
+
+
+resolvers.txt
+
+
+Ejemplo:
+
+
+8.8.8.8
+1.1.1.1
+9.9.9.9
+
+
+Ejecutar:
+
+
+amass enum -d target.com -rf resolvers.txt
+
+
+---
+
+# 🔎 Flujo típico de Recon con Amass
+
+1️⃣ Encontrar subdominios
+
+
+amass enum -passive -d target.com
+
+
+2️⃣ Enumeración más agresiva
+
+
+amass enum -active -brute -d target.com
+
+
+3️⃣ Guardar resultados
+
+
+amass enum -d target.com -o subdomains.txt
+
+
+4️⃣ Buscar endpoints con otras herramientas
+
+Ejemplo con **ffuf**
+
+
+ffuf -u https://target.com/FUZZ
+ -w wordlist.txt
+
+
+ ---
+
+ # 🧠 Consejos PRO
+
+ - usar **modo pasivo primero**
+ - combinar con otras herramientas
+ - usar wordlists grandes
+ - guardar siempre resultados
+
+ ---
+
+ # 🔧 Herramientas que combinan bien con Amass
+
+ | herramienta | función |
+ |------|------|
+ | nmap | escaneo de puertos |
+ | ffuf | fuzzing de directorios |
+ | burp suite | análisis manual |
+ | sqlmap | explotación SQL |
+ | nikto | vulnerabilidades web |
+
+ ---
+
+ # ⚡ Ejemplo real rápido
+
+ Enumeración básica:
+
+
+ amass enum -d example.com
+
+
+ Enumeración agresiva:
+
+
+ amass enum -active -brute -d example.com -o subs.txt
+
+
+ Esto descubrirá gran cantidad de subdominios del objetivo.

@@ -1,0 +1,200 @@
+# 🛡️ Cheat Sheet de Nikto (Web Server Scanner)
+
+Nikto es un **scanner de vulnerabilidades para servidores web**.  
+Permite detectar rápidamente:
+
+- configuraciones inseguras
+- archivos sensibles expuestos
+- versiones vulnerables de software
+- problemas de seguridad conocidos
+- directorios peligrosos
+- configuraciones incorrectas de HTTP
+
+Nikto es muy usado en **pentesting web y auditorías rápidas**.
+
+---
+
+# 1️⃣ Escaneo básico
+
+Escaneo simple de un servidor web:
+
+```bash
+nikto -h http://target
+
+Ejemplo:
+
+nikto -h http://example.com
+
+Esto buscará:
+
+configuraciones inseguras
+
+archivos peligrosos
+
+versiones vulnerables
+
+2️⃣ Escaneo por IP
+
+También puedes escanear directamente una IP.
+
+nikto -h 192.168.1.10
+3️⃣ Escaneo de puertos específicos
+
+Si el servidor web usa otro puerto:
+
+nikto -h http://target:8080
+
+O:
+
+nikto -h target -p 8080
+4️⃣ Escaneo HTTPS
+
+Para servidores con SSL/TLS:
+
+nikto -h https://target
+
+También puedes especificar el puerto:
+
+nikto -h https://target -p 443
+5️⃣ Escaneo de múltiples hosts
+
+Escanear varios hosts desde un archivo:
+
+nikto -h hosts.txt
+
+Ejemplo hosts.txt:
+
+example.com
+test.com
+192.168.1.20
+6️⃣ Escaneo con mayor detalle (verbose)
+
+Mostrar más información durante el escaneo:
+
+nikto -h http://target -Display V
+
+Opciones comunes:
+
+opción	función
+V	verbose
+D	debug
+P	mostrar progreso
+
+Ejemplo:
+
+nikto -h http://target -Display V
+7️⃣ Escaneo con proxy
+
+Útil si usas Burp o un proxy local.
+
+nikto -h http://target -useproxy http://127.0.0.1:8080
+8️⃣ Escaneo con autenticación
+
+Si el sitio requiere login:
+
+nikto -h http://target -id usuario:password
+9️⃣ Escaneo específico por plugins
+
+Nikto usa plugins para distintos tests.
+
+Listar plugins disponibles:
+
+nikto -list-plugins
+
+Ejecutar plugin específico:
+
+nikto -h http://target -Plugins apacheusers
+🔟 Guardar resultados
+
+Guardar resultados del escaneo.
+
+nikto -h http://target -o resultados.txt
+
+Formatos disponibles:
+
+opción	formato
+txt	texto
+html	reporte HTML
+csv	CSV
+json	JSON
+
+Ejemplo HTML:
+
+nikto -h http://target -o reporte.html -Format html
+1️⃣1️⃣ Escaneo completo agresivo
+
+Para auditoría más completa:
+
+nikto -h http://target -C all
+
+Esto analiza:
+
+CGI
+
+directorios sensibles
+
+archivos expuestos
+
+1️⃣2️⃣ Escaneo de directorios CGI
+
+Buscar scripts CGI vulnerables:
+
+nikto -h http://target -Cgidirs all
+1️⃣3️⃣ Ignorar falsos positivos
+
+Puedes excluir ciertos códigos HTTP.
+
+Ejemplo ignorar 404:
+
+nikto -h http://target -IgnoreCode 404
+1️⃣4️⃣ Flujo típico en pentesting web
+
+1️⃣ Descubrir subdominios
+(usando ffuf u otras herramientas)
+
+2️⃣ Enumerar directorios
+
+3️⃣ Escanear servidor web con Nikto
+
+nikto -h http://target
+
+4️⃣ Revisar vulnerabilidades encontradas
+
+5️⃣ Validar manualmente con proxy o navegador
+
+🧠 Consejos PRO
+
+Nikto es rápido pero ruidoso, puede ser detectado fácilmente.
+
+Ideal para auditoría inicial de servidores web.
+
+Combinar con:
+
+herramienta	uso
+ffuf	fuzzing de directorios
+nmap	descubrimiento de puertos
+burp suite	análisis manual
+📊 Qué tipo de vulnerabilidades detecta Nikto
+
+Nikto puede encontrar:
+
+archivos backup expuestos
+
+configuraciones inseguras
+
+versiones vulnerables de Apache/Nginx
+
+directorios administrativos
+
+scripts CGI inseguros
+
+problemas de headers HTTP
+
+software obsoleto
+
+⚡ Ejemplo de auditoría rápida
+nmap -sCV target
+ffuf -u http://target/FUZZ -w wordlist.txt
+nikto -h http://target
+
+Este flujo es uno de los más usados en pentesting web inicial.

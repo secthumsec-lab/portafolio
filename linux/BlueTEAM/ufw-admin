@@ -1,0 +1,80 @@
+# 🛡️ Cheat Sheet de UFW (Uncomplicated Firewall) en Linux
+
+UFW es una herramienta sencilla para **gestionar reglas de firewall en Linux**. Ideal para proteger tu sistema bloqueando o permitiendo puertos.
+
+---
+
+## 1️⃣ Ver estado de UFW
+
+```bash
+# Ver si UFW está activo y las reglas actuales
+sudo ufw status verbose
+
+Salida típica:
+
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+2️⃣ Activar / desactivar UFW
+# Activar UFW
+sudo ufw enable
+
+# Desactivar UFW temporalmente
+sudo ufw disable
+
+💡 Consejo: activa UFW después de configurar tus reglas para no bloquearte accidentalmente.
+
+3️⃣ Reglas básicas
+Permitir un puerto específico
+# Permitir SSH (puerto 22)
+sudo ufw allow 22
+
+# Permitir HTTP (puerto 80)
+sudo ufw allow 80
+
+# Permitir HTTPS (puerto 443)
+sudo ufw allow 443
+Permitir solo desde una IP específica
+# Permitir SSH solo desde 192.168.1.100
+sudo ufw allow from 192.168.1.100 to any port 22
+Bloquear un puerto
+sudo ufw deny 22
+4️⃣ Permitir o denegar rangos de puertos
+# Permitir todos los puertos del 1000 al 2000
+sudo ufw allow 1000:2000/tcp
+
+# Bloquear rango de puertos UDP
+sudo ufw deny 5000:6000/udp
+5️⃣ Eliminar reglas
+# Eliminar una regla por puerto
+sudo ufw delete allow 22
+
+# Eliminar regla por número de regla
+sudo ufw status numbered
+sudo ufw delete NUM
+6️⃣ Configuración avanzada
+Limitar intentos de conexión (anti-brute force)
+sudo ufw limit 22/tcp
+
+Limita conexiones SSH a un número seguro por minuto.
+
+Permitir servicios por nombre (si están en /etc/services)
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+7️⃣ Flujo recomendado
+
+Revisar estado: sudo ufw status verbose
+
+Activar UFW: sudo ufw enable
+
+Permitir solo servicios que necesitas (SSH, HTTP, etc.)
+
+Limitar conexiones críticas: sudo ufw limit 22/tcp
+
+Bloquear todo lo demás por defecto:
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+💡 Consejo pro: combina UFW + deshabilitación de servicios innecesarios para que tu antiX quede seguro sin abrir puertos que no uses.
